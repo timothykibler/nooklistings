@@ -4,7 +4,7 @@ import { Flex, List, ListItem, ListIcon, Divider, Text } from '@chakra-ui/core'
 function RecentLists() {
 
   return (
-    <Flex boxShadow='lg' overflowY='scroll' justify='center' bg='gray.900' rounded='lg' mt={5} p={5} width={[ 700 ]} height={[ 400 ]}>
+    <Flex boxShadow='lg' overflowY='scroll' justify='center' bg='gray.900' rounded='lg' mt={5} p={5} width={['sm', 'lg', 'xl']} height={[ 'sm' ]}>
       <List spacing={4} width='full'>
         <ListItem mx={5} lineHeight={'2rem'} color='white'>
           <ListIcon color='white' icon='bell' />

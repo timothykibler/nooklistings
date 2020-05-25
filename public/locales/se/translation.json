@@ -2,14 +2,13 @@
   "email": "e-post",
   "home": "hem",
   "password": "lösenord",
-  "retypepassword": "retype password...",
+  "retypepassword": "skriv lösenord igen...",
   "login": "användarnamn",
   "register": "registrera",
   "homedescription": "full native language search and list of acnh item database",
-  "name": "name",
+  "name": "namn",
   "news": "nyheter",
-  "next": "next",
+  "next": "nästa",
   "newlist": "ny lista",
-  "list": "lista",
-  "name": "gbr"
+  "list": "lista"
 }

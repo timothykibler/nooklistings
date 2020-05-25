@@ -21,10 +21,7 @@ function FormCard({ buttonText = 'Button', title = 'Title',
   }
 
   return (
-    <ContentCard boxShadow='lg' bg='gray.50' direction='column' minH='sm' width={['sm', 'lg', 'xl']} spacing={4} rounded='lg'>
-      <Flex justify='center' flex={1} fontSize={[ 24, 32 ]} >
-        <Heading>{ title }</Heading>
-      </Flex>
+    <ContentCard boxShadow='lg' color='gray.50' bg='gray.900' direction='column' minH='xs' width={['sm', 'lg', 'xl']} spacing={4} rounded='lg' justify='center'>
       { description &&
         <Flex justify='center' flex={1}>
           <p>{ description }</p>
@@ -34,7 +31,7 @@ function FormCard({ buttonText = 'Button', title = 'Title',
         { children }
       </Flex>
       <Flex justify='flex-end' flex={1}>
-        <Button size={['md']} variantColor='green' onClick={clickHandler}>
+        <Button size={['md']} variantColor='blue' onClick={clickHandler}>
           { buttonText }
         </Button>
       </Flex>

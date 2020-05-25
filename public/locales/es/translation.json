@@ -3,13 +3,12 @@
   "home": "home",
   "password": "contraseña",
   "retypepassword": "confirmar contraseña",
-  "login": "login",
+  "login": "iniciar",
   "register": "registrar",
   "homedescription": "full native language search and list of acnh item database",
   "name": "nombre",
   "news": "noticias",
   "next": "proximó",
   "newlist": "nueva lista",
-  "list": "listas",
-  "name": "esp"
+  "list": "listas"
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Flex } from '@chakra-ui/core'
+import { Flex, Heading } from '@chakra-ui/core'
 import { useTranslation } from 'react-i18next'
 
 import { FieldInput } from 'components/FieldInput'
@@ -21,10 +21,12 @@ function LoginPage({ children }) {
   }
 
   return (
-    <Flex justify='center'>
+    <Flex justify='center' direction='column' alignItems='center'>
+      <Flex justify='center' flex={1} fontSize={[ 24, 32 ]} >
+        <Heading mt={5}>{ t('translation:login') }</Heading>
+      </Flex>
       <FormCard
         buttonText={t('translation:login')}
-        title={t('translation:login')}
       >
         <FieldInput name='email' placeholder={t('translation:email')} onChange={handleChange.bind(this)} />
         <FieldInput name='password1' placeholder={t('translation:password')} type='password' onChange={handleChange.bind(this)} />

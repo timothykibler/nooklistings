@@ -9,10 +9,10 @@ function ListPage() {
   const { t } = useTranslation('translation')
 
   return (
-    <Flex direction='column' align='center'>
-      <Heading alignSelf='center' as='h1' mt={5}>
-        { t('translation:list') }
-      </Heading>
+    <Flex justify='center' direction='column' alignItems='center'>
+      <Flex justify='center' flex={1} fontSize={[ 24, 32 ]} >
+        <Heading mt={5}>{ t('translation:list') }</Heading>
+      </Flex>
       <RecentLists />
     </Flex>
   )
