@@ -47,7 +47,7 @@ function Header(props) {
       justify='space-between'
       wrap='wrap'
       padding='1.5rem'
-      bg='gray.900'
+      bg='blue.700'
       width='full'
       color='white'
       boxShadow='md'
@@ -117,7 +117,7 @@ function Header(props) {
         </Flex>
 
         <Button as={RouterLink} to='/register' bg='transparent' border='1px' boxShadow='lg' rounded='lg'
-          _hover={{ bg: 'cyan.200', opacity: .5, color: 'black', border: 'none' }} >
+          _hover={{ bg: 'blue.500', opacity: 1, color: 'white' }} >
           {t('translation:register')}
         </Button>
       </Box>

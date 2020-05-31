@@ -7,7 +7,9 @@ function FieldInput (props) {
 
   return (
     <Flex mt={5}>
-      <Input px={15} name={name} placeholder={placeholder} type={type} onChange={onChange} variant='flushed' />
+      <Input borderBottomColor='gray.400' borderBottomWidth={1} letterSpacing='.1rem' px={15} name={name} placeholder={placeholder}
+        type={type} onChange={onChange} variant='flushed'
+      />
     </Flex>
   )
 

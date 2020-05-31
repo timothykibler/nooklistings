@@ -9,7 +9,7 @@ import { Header } from 'containers/Header'
 function Layout({ children }) {
 
   return (
-    <Flex direction='column' justify='center'>
+    <Flex direction='column' lineHeight={4} justify='center' color='white'>
       <Header />
       { children }
     </Flex>

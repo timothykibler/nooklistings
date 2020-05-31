@@ -25,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    background: white;
+    background: #171923;
   }
 `
 
