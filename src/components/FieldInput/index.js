@@ -6,8 +6,8 @@ function FieldInput (props) {
   const { placeholder = 'begin typing...', type = 'text', onChange, name='' } = props
 
   return (
-    <Flex mt={5}>
-      <Input borderBottomColor='gray.400' borderBottomWidth={1} letterSpacing='.1rem' px={15} name={name} placeholder={placeholder}
+    <Flex {...props}>
+      <Input minH={props.minH || null} borderBottomColor='gray.400' borderBottomWidth={1} letterSpacing='.1rem' px={15} name={name} placeholder={placeholder}
         type={type} onChange={onChange} variant='flushed'
       />
     </Flex>
