@@ -18,7 +18,7 @@ i18n
     lng: 'jp',
     fallbackLng: 'jp',
     debug: true,
-    whitelist: [ 'gb', 'jp', 'es', 'se' ],
+    whitelist: [ 'en', 'gb', 'jp', 'es' ],
     interpolation: {
       escapeValue: false
     },

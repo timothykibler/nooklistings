@@ -28,8 +28,8 @@ function LoginPage({ children }) {
       <FormCard
         buttonText={t('translation:login')}
       >
-        <FieldInput name='email' placeholder={t('translation:email')} onChange={handleChange.bind(this)} />
-        <FieldInput name='password1' placeholder={t('translation:password')} type='password' onChange={handleChange.bind(this)} />
+        <FieldInput mt={10} mx={10} name='email' placeholder={t('translation:email')} onChange={handleChange.bind(this)} />
+        <FieldInput mt={10} mx={10} name='password1' placeholder={t('translation:password')} type='password' onChange={handleChange.bind(this)} />
       </FormCard>
     </Flex>
   )
