@@ -28,6 +28,7 @@
     "react-i18next": "^11.5.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.0",
+    "react-spring": "^8.0.27",
     "rebass": "^4.0.7",
     "styled-components": "^5.1.0"
   },
