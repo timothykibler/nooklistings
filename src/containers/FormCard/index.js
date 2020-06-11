@@ -7,7 +7,7 @@ import { ContentCard } from 'components/ContentCard'
 import { FieldInput } from 'components/FieldInput'
 
 function FormCard({ buttonText = 'Button', title = 'Title',
-  description, clickHandler, children }) {
+  description, clickHandler, children, ...props }) {
 
   const [ userinfo, setUserInfo ] = useState({})
 
@@ -21,7 +21,18 @@ function FormCard({ buttonText = 'Button', title = 'Title',
   }
 
   return (
-    <ContentCard boxShadow='lg' color='white' bg='gray.800' direction='column' minH='xs' width={['sm', 'lg', 'xl']} spacing={4} rounded='lg' justify='center'>
+    <ContentCard
+      boxShadow='lg'
+      color='white'
+      bg='gray.800'
+      direction='column'
+      height={['sm']}
+      width={['sm', 'lg', 'xl']}
+      spacing={4}
+      rounded='lg'
+      justify='center'
+      {...props}
+    >
       { description &&
         <Flex justify='center' flex={1}>
           <p>{ description }</p>
@@ -31,7 +42,7 @@ function FormCard({ buttonText = 'Button', title = 'Title',
         { children }
       </Flex>
       <Flex justify='flex-end' flex={1}>
-        <Button mt={4} size={['md']} variantColor='blue' onClick={clickHandler}>
+        <Button mt={4} size={['md']} variantColor='blue' onClick={clickHandler} mr={10} >
           { buttonText }
         </Button>
       </Flex>

@@ -10,7 +10,7 @@ function HomePage() {
 
   return (
     <Flex direction='column' align='center'>
-      <Heading as='h1' mt={5}>villagerjp</Heading>
+      <Heading as='h1' mt={5}>nooklistings</Heading>
       <Text>
         {t('translation:homedescription')}
       </Text>
