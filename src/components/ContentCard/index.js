@@ -7,7 +7,6 @@ const ContentCard = styled(Stack)`
   align-content: space-around;
   justify-content: space-between;
   text-align: center;
-  padding: 20px;
   background: white;
   margin-top: 25px;
 `
