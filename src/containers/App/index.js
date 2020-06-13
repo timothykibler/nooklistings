@@ -27,6 +27,12 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     background: #171923;
   }
+
+  ::-webkit-scrollbar {
+     -webkit-appearance: none;
+
+     background-color: black;
+  }
 `
 
 function App() {

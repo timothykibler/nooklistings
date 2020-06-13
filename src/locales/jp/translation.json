@@ -1,0 +1,18 @@
+{
+  "email": "メールアドレス",
+  "home": "ホーム",
+  "password": "パスウワド",
+  "retypepassword": "パスウワドの確認",
+  "search": "タイプしてをください",
+  "save": "セーブ",
+  "login": "ログイン",
+  "register": "アカウントを作成する",
+  "homedescription": "いっらしゃいまっせ！このサイトを使えるください。",
+  "name": "名前",
+  "news": "お知らせ",
+  "currentnews": "暇なときに英語にこのサイトを使えてください",
+  "next": "次に",
+  "newlist": "新しいリスト",
+  "list": "リスト",
+  "name": "日本語"
+}

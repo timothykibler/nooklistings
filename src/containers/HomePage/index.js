@@ -1,18 +1,18 @@
 import React from 'react'
 import { Heading, Flex, Text, Stack } from '@chakra-ui/core'
-import { useTranslation } from 'react-i18next'
 
 import { InfoCard } from 'components/InfoCard'
+import useTranslation from 'hooks/useTranslation'
 
 function HomePage() {
 
-  const { t } = useTranslation('translation')
+  const [translation] = useTranslation()
 
   return (
     <Flex direction='column' align='center'>
       <Heading as='h1' mt={5}>nooklistings</Heading>
       <Text>
-        {t('translation:homedescription')}
+        {translation.homedescription}
       </Text>
       <Stack borderBox='lg' direction='row' justify='center' spacing={'16'} mt={10} wrap='wrap' >
         <InfoCard />

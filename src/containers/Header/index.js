@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import { Button, Flex, List, ListItem, Box, Heading, Text, Link, Icon, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/core'
 import styled from 'styled-components'
-import { useTranslation } from 'react-i18next'
 import { animated, useSpring } from 'react-spring'
 import ReactCountryFlag from 'react-country-flag'
+import { setLocale } from 'react-redux-i18n'
+
+import useTranslation from 'hooks/useTranslation'
 
 const LinkWithStyle = styled(Link)`
   :hover {
@@ -24,8 +27,12 @@ function Header(props) {
 
   const [ language, setLanguage ] = useState('JP')
   const [ show, setShow ] = useState(false)
-  const { t, i18n } = useTranslation('translation')
   const [ on, toggle ] = useState(false)
+
+  // redux hooks
+  const dispatch = useDispatch()
+
+  const [translation] = useTranslation()
 
   const handleToggle = () => setShow(!show)
 
@@ -33,8 +40,6 @@ function Header(props) {
   const animprops2 = useSpring({ delay: 200, opacity: 1, from: { opacity: 0 } })
   const animprops3 = useSpring({ delay: 300, opacity: 1, from: { opacity: 0 } })
   const animprops4 = useSpring({ delay: 400, opacity: 1, from: { opacity: 0 } })
-  const animprops5 = useSpring({ delay: 500, opacity: 1, from: { opacity: 0 } })
-  const animprops6 = useSpring({ delay: 600, opacity: 1, from: { opacity: 0 } })
 
   const handleLanguage = ev => {
     setLanguage(ev.target.name.substr(0, 2))
@@ -45,7 +50,8 @@ function Header(props) {
       lng = 'es'
     }
 
-    i18n.changeLanguage(lng)
+    // switch language
+    dispatch(setLocale(lng))
   }
 
   return (
@@ -90,13 +96,13 @@ function Header(props) {
         userSelect='none'
       >
         <NavItem to='/'>
-          <animated.span style={animprops2}>{t('translation:home')}</animated.span>
+          <animated.span style={animprops2}>{translation.home}</animated.span>
         </NavItem>
         <NavItem to='/login'>
-          <animated.span style={animprops3}>{t('translation:login')}</animated.span>
+          <animated.span style={animprops3}>{translation.login}</animated.span>
         </NavItem>
         <NavItem to='/list'>
-          <animated.span style={animprops4}>{t('translation:newlist')}</animated.span>
+          <animated.span style={animprops4}>{translation.newlist}</animated.span>
         </NavItem>
       </Box>
 
@@ -131,7 +137,7 @@ function Header(props) {
         <animated.span style={animprops1}>
           <Button as={RouterLink} to='/register' bg='transparent' border='1px' boxShadow='lg' rounded='lg'
             _hover={{ bg: 'blue.500', opacity: 1, color: 'white' }} >
-            {t('translation:register')}
+            {translation.register}
           </Button>
         </animated.span>
       </Box>
@@ -140,4 +146,4 @@ function Header(props) {
 
 }
 
-export { Header }
+export default Header
