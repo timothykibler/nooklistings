@@ -16,7 +16,10 @@ const store = createStore(
 
 syncTranslationWithStore(store)
 store.dispatch(loadTranslations(locales))
-store.dispatch(setLocale('jp'))
+
+// check if user has set language before
+const defaultLanguage = localStorage.getItem('defaultLanguage')
+store.dispatch(setLocale(defaultLanguage || 'jp'))
 
 export default function configureStore() {
   return store

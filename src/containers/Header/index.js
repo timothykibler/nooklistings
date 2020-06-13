@@ -25,14 +25,13 @@ const NavItem = ({ children, to }) => (
 
 function Header(props) {
 
-  const [ language, setLanguage ] = useState('JP')
-  const [ show, setShow ] = useState(false)
-  const [ on, toggle ] = useState(false)
+  const [translation, locale] = useTranslation()
+  const [language, setLanguage] = useState(locale)
+  const [show, setShow] = useState(false)
+  const [on, toggle] = useState(false)
 
   // redux hooks
   const dispatch = useDispatch()
-
-  const [translation] = useTranslation()
 
   const handleToggle = () => setShow(!show)
 
@@ -52,6 +51,8 @@ function Header(props) {
 
     // switch language
     dispatch(setLocale(lng))
+    // save to local storage
+    localStorage.setItem('defaultLanguage', lng)
   }
 
   return (
@@ -69,11 +70,11 @@ function Header(props) {
       {...props}
     >
       <Flex align='center' mr={5}>
-        <animated.div style={animprops1}>
+
           <Heading as='h1' size='lg' onClick={() => toggle(!on)}>
             nooklistings
           </Heading>
-        </animated.div>
+
       </Flex>
 
       <Box display={{ sm: 'block', md: 'none' }} onClick={handleToggle}>
@@ -96,13 +97,13 @@ function Header(props) {
         userSelect='none'
       >
         <NavItem to='/'>
-          <animated.span style={animprops2}>{translation.home}</animated.span>
+          {translation.home}
         </NavItem>
         <NavItem to='/login'>
-          <animated.span style={animprops3}>{translation.login}</animated.span>
+          {translation.login}
         </NavItem>
         <NavItem to='/list'>
-          <animated.span style={animprops4}>{translation.newlist}</animated.span>
+          {translation.newlist}
         </NavItem>
       </Box>
 
@@ -116,30 +117,28 @@ function Header(props) {
             <MenuButton>
               <Text mr={5}>
                 <ReactCountryFlag countryCode={
-                  language === 'EN' ? 'US': language
+                  language === 'en' ? 'US': language
                 } style={{ height: '2rem', width: '2rem' }} svg />
               </Text>
             </MenuButton>
             <MenuList color='black'>
-              <MenuItem name='JPN' onClick={handleLanguage}>
+              <MenuItem name='jpn' onClick={handleLanguage}>
                 日本語
               </MenuItem>
-              <MenuItem name='EN' onClick={handleLanguage}>
+              <MenuItem name='en' onClick={handleLanguage}>
                 EN
               </MenuItem>
-              <MenuItem name='MX' onClick={handleLanguage}>
+              <MenuItem name='mx' onClick={handleLanguage}>
                 ES
               </MenuItem>
             </MenuList>
           </Flex>
         </animated.span>
 
-        <animated.span style={animprops1}>
           <Button as={RouterLink} to='/register' bg='transparent' border='1px' boxShadow='lg' rounded='lg'
             _hover={{ bg: 'blue.500', opacity: 1, color: 'white' }} >
             {translation.register}
           </Button>
-        </animated.span>
       </Box>
     </Flex>
   )

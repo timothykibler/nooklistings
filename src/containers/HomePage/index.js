@@ -11,7 +11,7 @@ function HomePage() {
   return (
     <Flex direction='column' align='center'>
       <Heading as='h1' mt={5}>nooklistings</Heading>
-      <Text>
+      <Text mt={4}>
         {translation.homedescription}
       </Text>
       <Stack borderBox='lg' direction='row' justify='center' spacing={'16'} mt={10} wrap='wrap' >

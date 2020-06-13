@@ -42,7 +42,7 @@ function FormCard({ buttonText = 'Button', title = 'Title',
         { children }
       </Flex>
       <Flex justify='flex-end' flex={1}>
-        <Button mt={4} size={['md']} variantColor='blue' onClick={clickHandler} mr={10} >
+        <Button size={['md']} variantColor='blue' onClick={clickHandler} mr={10} >
           { buttonText }
         </Button>
       </Flex>
