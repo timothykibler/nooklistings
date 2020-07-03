@@ -4,6 +4,6 @@ import App from './index'
 
 test('Renders App component', () => {
   const { getByText } = render(<App />)
-  const linkElement = getByText(/learn react/i)
+  const linkElement = getByText(/fucking fuck/i)
   expect(linkElement).toBeInTheDocument()
 })

@@ -57,7 +57,7 @@ function useSearch({ setData, query, apikey = 'ef8478cb-8d81-4928-b717-7d63a89a0
       cancel = true
     }
 
-  }, [ query, setData, setError ])
+  }, [ language, query, setData, setError ])
 
   return [ error ]
 }

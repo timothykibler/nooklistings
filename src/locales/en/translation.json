@@ -3,6 +3,7 @@
   "home": "home",
   "password": "password",
   "search": "search",
+  "save": "save",
   "retypepassword": "retype password...",
   "login": "login",
   "register": "create account",
@@ -11,6 +12,5 @@
   "news": "news",
   "next": "next",
   "newlist": "new list",
-  "list": "lists",
-  "name": "name"
+  "list": "lists"
 }

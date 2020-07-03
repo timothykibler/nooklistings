@@ -1,29 +1,29 @@
-import React, { useState, useEffect } from 'react'
-import { Heading, Flex, Text, Stack } from '@chakra-ui/core'
+import React, {useState, useEffect} from 'react'
+import {Divider, Heading, Flex} from '@chakra-ui/core'
 
-import { FormCard } from 'containers/FormCard'
-import { SearchResultList } from 'containers/SearchResultList'
+import {FormCard} from 'containers/FormCard'
+import {SearchResultList} from 'containers/SearchResultList'
 
-import { FieldInput } from 'components/FieldInput'
+import {FieldInput} from 'components/FieldInput'
 
-import { useSearch } from 'hooks/useSearch'
+import {useSearch} from 'hooks/useSearch'
 import useTranslation from 'hooks/useTranslation'
 
 function ListPage() {
 
   const [translation, locale] = useTranslation()
 
-  const [ language, setLanguage ] = useState()
+  const [language, setLanguage] = useState()
 
   useEffect(() => {
     setLanguage(locale)
-  }, [ locale, setLanguage ])
+  }, [locale, setLanguage])
 
-  console.log(language)
+  const [data, setData] = useState()
+  const [query, setQuery] = useState('')
+  const [error] = useSearch({ setData, query, language })
 
-  const [ data, setData ] = useState()
-  const [ query, setQuery ] = useState('')
-  const [ error ] = useSearch({ setData, query, language })
+  const [inputbordercolor, setInputBorderColor] = useState('gray.500')
 
   useEffect(() => {
     if (error) {
@@ -56,9 +56,33 @@ function ListPage() {
         minH='xs'
       >
 
-        <FieldInput minH={'75px'} name='search' type='text' placeholder={translation.search} onChange={handleChange.bind(this)} />
-        <Flex direction='column' minH='0px' overflow='hidden'>
-          <Flex boxSizing='content-box' pr={17} w='100%' h='100%' direction='column' overflowY='scroll' height='200px'>
+        <FieldInput
+          backgroundColor='gray.900'
+          border='1px'
+          borderColor={inputbordercolor}
+          onBlur={() => setInputBorderColor('gray.500') }
+          onFocus={() => setInputBorderColor('blue.800') }
+          mx={['.8rem']}
+          my={['1rem']}
+          minH='50px'
+          name='search'
+          type='text'
+          placeholder={translation.search}
+          onChange={handleChange.bind(this)}
+        />
+
+        <Divider color='gray.500' />
+
+        <Flex direction='column'>
+          <Flex
+            boxSizing='content-box'
+            pr={17}
+            w='100%'
+            h='100%'
+            direction='column'
+            overflowY='scroll'
+            height='200px'
+          >
             <SearchResultList data={data} language={language} />
           </Flex>
         </Flex>

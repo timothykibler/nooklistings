@@ -9,16 +9,7 @@ import { FieldInput } from 'components/FieldInput'
 function FormCard({ buttonText = 'Button', title = 'Title',
   description, clickHandler, children, ...props }) {
 
-  const [ userinfo, setUserInfo ] = useState({})
-
-  function handleChange(ev) {
-    setUserInfo({ ...userinfo, [ev.target.name]: ev.target.value })
-  }
-
-  function registerClick() {
-    // make the register call
-    console.log(userinfo)
-  }
+  const [userinfo, setUserInfo] = useState({})
 
   return (
     <ContentCard
@@ -52,7 +43,7 @@ function FormCard({ buttonText = 'Button', title = 'Title',
 }
 
 FormCard.propTypes = {
-  buttonText: PropTypes.number,
+  buttonText: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
   clickHandler: PropTypes.func.isRequired

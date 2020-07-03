@@ -15,13 +15,13 @@ const FlexHover = styled(Flex)`
 
 function SearchResultList({ children, data = [], language = 'en' }) {
 
-  const [ animprops, set, stop ] = useSpring(() => ({
+  const [animprops, set, stop] = useSpring(() => ({
     opacity: 1
   }))
 
   useEffect(() => {
     // set({ delay: 400, reset: true, opacity: 1  })
-  }, [ data ])
+  }, [data])
 
   function highlight() {
     console.log('hovered')
