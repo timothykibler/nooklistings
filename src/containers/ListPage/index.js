@@ -57,9 +57,6 @@ function ListPage() {
       >
 
         <FieldInput
-          backgroundColor='gray.900'
-          border='1px'
-          borderColor={inputbordercolor}
           onBlur={() => setInputBorderColor('gray.500') }
           onFocus={() => setInputBorderColor('blue.800') }
           mx={['.8rem']}

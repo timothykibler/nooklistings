@@ -88,7 +88,8 @@ function RegisterPage({ children }) {
         title={translation.register}
         clickHandler={registerClick}
       >
-        <FieldInput mt={5} mx={10} name='name' placeholder={translation.name} onChange={handleChange.bind(this)} />
+        <FieldInput
+          mt={5} mx={10} name='name' placeholder={translation.name} onChange={handleChange.bind(this)} />
         <FieldInput mt={5} mx={10} name='email' placeholder={translation.email} onChange={handleChange.bind(this)} />
         <FieldInput mt={5} mx={10} name='password1' placeholder={translation.password} type='password' onChange={handleChange.bind(this)} />
         <FieldInput mt={5} mx={10} name='password2' placeholder={translation.retypepassword} type='password' onChange={handleChange.bind(this)} />
