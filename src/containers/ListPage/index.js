@@ -20,10 +20,9 @@ function ListPage() {
   }, [locale, setLanguage])
 
   const [data, setData] = useState()
+  const [searchterm, setSearchTerm] = useState()
   const [query, setQuery] = useState('')
   const [error] = useSearch({ setData, query, language })
-
-  const [inputbordercolor, setInputBorderColor] = useState('gray.500')
 
   useEffect(() => {
     if (error) {
@@ -35,12 +34,25 @@ function ListPage() {
     console.log(data)
   }, [ data ])
 
+  function handleKeyDown(ev) {
+
+    if (ev.keyCode === 13) {
+      ev.preventDefault()
+
+      if (!error) {
+        handleClick()
+      }
+    }
+
+  }
+
   function handleChange(ev) {
-    setQuery(ev.target.value)
+    // not needed
+    setSearchTerm(ev.target.value)
   }
 
   function handleClick() {
-    console.log('click handled')
+    setQuery(searchterm)
   }
 
   return (
@@ -52,13 +64,12 @@ function ListPage() {
 
       <FormCard
         buttonText={translation.save}
+        onKeyDown={handleKeyDown}
         clickHandler={handleClick}
         minH='xs'
       >
 
         <FieldInput
-          onBlur={() => setInputBorderColor('gray.500') }
-          onFocus={() => setInputBorderColor('blue.800') }
           mx={['.8rem']}
           my={['1rem']}
           minH='50px'
