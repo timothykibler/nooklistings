@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
-import { Button, Flex, Box, Heading } from '@chakra-ui/core'
+import { Button, Flex } from '@chakra-ui/core'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
 
 import { ContentCard } from 'components/ContentCard'
-import { FieldInput } from 'components/FieldInput'
 
 function FormCard({ buttonText = 'Button', title = 'Title',
   description, clickHandler, children, ...props }) {
