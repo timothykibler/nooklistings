@@ -1,13 +1,11 @@
-import React, { useState } from 'react'
-import { Button, Flex } from '@chakra-ui/core'
+import React from 'react'
+import {Button, Flex, Text} from '@chakra-ui/core'
 import PropTypes from 'prop-types'
 
-import { ContentCard } from 'components/ContentCard'
+import {ContentCard} from 'components/ContentCard'
 
-function FormCard({ buttonText = 'Button', title = 'Title',
-  description, clickHandler, children, ...props }) {
-
-  const [userinfo, setUserInfo] = useState({})
+function FormCard({ buttonText = 'Button', buttonHandler, children, description,
+  flash, title = 'Title', valid, ...props}) {
 
   return (
     <ContentCard
@@ -15,7 +13,7 @@ function FormCard({ buttonText = 'Button', title = 'Title',
       color='white'
       bg='gray.800'
       direction='column'
-      height={['sm']}
+      height={['sm', 'md']}
       width={['sm', 'lg', 'xl']}
       spacing={4}
       rounded='lg'
@@ -23,17 +21,34 @@ function FormCard({ buttonText = 'Button', title = 'Title',
       {...props}
     >
       { description &&
+        // Show description if provided
         <Flex justify='center' flex={1}>
-          <p>{ description }</p>
+          <p>{description}</p>
         </Flex>
       }
+
       <Flex direction='column' flex={3}>
-        { children }
+        {children}
       </Flex>
-      <Flex justify='flex-end' flex={1}>
-        <Button size={['md']} variantColor='blue' onClick={clickHandler} mr={10} >
-          { buttonText }
-        </Button>
+
+      {/* Bottom row */ }
+      <Flex flex={1}>
+
+        <Flex justify='space-between' mx={10} width='100%'>
+          {/* Flash messages */}
+          <Flex color='red.200'>
+            {flash}
+          </Flex>
+
+          {/* action button */}
+          <Flex>
+            <Button variantColor='blue' onClick={buttonHandler} disabled={!valid}>
+              {buttonText}
+            </Button>
+          </Flex>
+          
+        </Flex>
+
       </Flex>
     </ContentCard>
   )
@@ -44,7 +59,7 @@ FormCard.propTypes = {
   buttonText: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
-  clickHandler: PropTypes.func.isRequired
+  buttonHandler: PropTypes.func.isRequired
 }
 
 export { FormCard }

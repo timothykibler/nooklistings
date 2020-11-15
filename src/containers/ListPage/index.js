@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {Divider, Heading, Flex} from '@chakra-ui/core'
 
-import {FormCard} from 'containers/FormCard'
+import {FormCard} from 'containers/FormCard/'
 import {SearchResultList} from 'containers/SearchResultList'
 
 import {FieldInput} from 'components/FieldInput'

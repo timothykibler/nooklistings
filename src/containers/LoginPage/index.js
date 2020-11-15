@@ -7,16 +7,11 @@ import useTranslation from 'hooks/useTranslation'
 
 function LoginPage({ children }) {
 
-  const [ userinfo, setUserInfo ] = useState({})
+  const [userinfo, setUserInfo] = useState({})
   const [translation] = useTranslation()
 
   function handleChange(ev) {
-    setUserInfo({ ...userinfo, [ev.target.name]: ev.target.value })
-  }
-
-  function registerClick() {
-    // make the register call
-    console.log(userinfo)
+    setUserInfo({...userinfo, [ev.target.name]: ev.target.value})
   }
 
   return (

@@ -10,6 +10,7 @@ function FieldInput (props) {
     <Flex {...props}>
       <Input
         backgroundColor='gray.900'
+        roundedTop='4px'
         borderBottom='1px'
         borderColor={inputbordercolor}
         minH={props.minH || null}

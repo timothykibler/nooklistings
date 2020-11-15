@@ -8,10 +8,11 @@ import configureStore from './store'
 const store = configureStore()
 
 ReactDOM.render(
-  <Suspense fallback={null}>
+  // suspense handles loading behavior, migh
+  
     <Provider store={store}>
       <App />
     </Provider>
-  </Suspense>,
+  ,
   document.getElementById('root')
 )

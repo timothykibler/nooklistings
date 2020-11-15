@@ -16,7 +16,8 @@ const LinkWithStyle = styled(Link)`
 `
 
 const NavItem = ({ children, to }) => (
-  <Text mt={{ base: 4, md: 0 }} mr={6} display='block' cursor='pointer'>
+  // TODO alignment needs to happen here
+  <Text mt={{xs: 0, sm: 0, md: 0}} pr={{xs: '3px', sm: '4px', md: '5px'}} display='block' cursor='pointer'>
     <LinkWithStyle as={RouterLink} to={to}>
       { children }
     </LinkWithStyle>
@@ -35,10 +36,7 @@ function Header(props) {
 
   const handleToggle = () => setShow(!show)
 
-  const animprops1 = useSpring({ opacity: 1, from: { opacity: 0 } })
-  const animprops2 = useSpring({ delay: 200, opacity: 1, from: { opacity: 0 } })
-  const animprops3 = useSpring({ delay: 300, opacity: 1, from: { opacity: 0 } })
-  const animprops4 = useSpring({ delay: 400, opacity: 1, from: { opacity: 0 } })
+  const animprops1 = useSpring({ delay: 300, opacity: 1, from: { opacity: 0 } })
 
   const handleLanguage = ev => {
     setLanguage(ev.target.name.substr(0, 2))
@@ -67,6 +65,11 @@ function Header(props) {
       width='full'
       color='white'
       boxShadow='md'
+      flexDirection={{
+        xs: 'column',
+        sm: 'row',
+        md: 'row'
+      }}
       {...props}
     >
       <Flex align='center' mr={5}>
@@ -77,7 +80,7 @@ function Header(props) {
 
       </Flex>
 
-      <Box display={{ sm: 'block', md: 'none' }} onClick={handleToggle}>
+      <Box display={{ xs: 'flex', sm: 'none', md: 'none' }} onClick={handleToggle}>
         <svg
           fill="white"
           width="12px"
@@ -90,8 +93,12 @@ function Header(props) {
       </Box>
 
       <Box
-        display={{ sm: show ? 'block' : 'none', md: 'flex' }}
-        width={{ sm: 'full', md: 'auto' }}
+        display={{
+          xs: show ? 'flex' : 'none',
+          sm: 'flex',
+          md: 'flex' 
+        }}
+        width={{ xs: 'auto', sm: 'auto', md: 'auto' }}
         alignItems='center'
         flexGrow={1}
         userSelect='none'
@@ -109,10 +116,18 @@ function Header(props) {
 
       <Box
         alignItems='center'
-        display={{ sm: show ? 'flex' : 'none', md: 'flex' }}
-        mt={{ base: 4, md: 0 }}
+        display={{
+          xs: 'flex',
+          sm: 'flex',
+          md: 'flex'
+        }}
+        flexDirection={{
+          xs: 'column',
+          sm: 'row',
+          md: 'row'
+        }}
       >
-        <animated.span style={animprops3}>
+        <animated.span style={animprops1}>
           <Flex as={Menu} mr={5} cursor='pointer' alignItems='center' boxShadow='lg'>
             <MenuButton>
               <Text mr={5}>
